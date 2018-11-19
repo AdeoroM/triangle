@@ -29,9 +29,9 @@ func typeTriangle(tringle Triangle) string {
 		return fmt.Sprintf("Your %v triangle is Equlat", name)
 	}
 	if a == b || a == h || b == h {
-		return fmt.Sprintf("Your %v triangle is Scalene", name)
+		return fmt.Sprintf("Your %v triangle is Isosceles", name)
 	}
-	return fmt.Sprintf("Your %v triangle  is Isosceles", name)
+	return fmt.Sprintf("Your %v triangle  is Scalene", name)
 }
 
 func main() {
@@ -42,10 +42,7 @@ func main() {
 	name := flag.String("name", "", "Save")
 	flag.Parse()
 	triangle := Triangle{
-		CatAD: *catAD,
-		CatOP: *catOP,
-		Hyp:   *hyp,
-		Name:  *name,
+		*catAD, *catOP, *hyp, *name,
 	}
 	if triangleInequality(triangle) {
 		if *catAD != 0 && *catOP != 0 && *hyp != 0 {
